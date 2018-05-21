@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigationView.setSelectedItemId(R.id.navigation_home);
     }
 
 }

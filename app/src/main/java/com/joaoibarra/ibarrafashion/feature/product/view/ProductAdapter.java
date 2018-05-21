@@ -40,6 +40,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         Product product = list.get(position);
         if(product != null) {
             holder.tvProductName.setText(product.getName());
+            holder.tvDescription.setText(product.getRegularPrice());
             if (!product.getImage().isEmpty()) {
                 Picasso.get().load(product.getImage()).into(holder.productImageView);
             }
@@ -57,6 +58,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         @BindView(R.id.tvTitle)
         TextView tvProductName;
+
+        @BindView(R.id.tvDescription)
+        TextView tvDescription;
 
         @BindView(R.id.cardView)
         CardView cardView;
