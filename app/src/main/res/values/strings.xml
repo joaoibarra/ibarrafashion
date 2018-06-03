@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Ibarra Fashion</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_sale">Ofertas</string>
     <string name="title_notifications">Notifications</string>
+    <string name="product_detail">Detalhe do Produto</string>
+    <string name="description">Descrição</string>
+    <string name="buy">Comprar</string>
+    <string name="season">OUTONO - INVERNO</string>
 </resources>

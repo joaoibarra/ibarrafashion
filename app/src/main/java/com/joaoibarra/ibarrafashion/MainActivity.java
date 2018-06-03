@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, selectedFragment).commit();
                     presenter.getProducts();
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_sale:
                     selectedFragment = ProductFragmentListActivity.newInstance();
                     presenter = new ProductListPresenter(selectedFragment);
                     selectedFragment.attachPresenter(presenter);
