@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Ibarra Fashion</string>
     <string name="title_home">Home</string>
-    <string name="title_sale">Ofertas</string>
+    <string name="title_sale">Promoções</string>
     <string name="title_fav">Favoritos</string>
     <string name="product_detail">Detalhe do Produto</string>
     <string name="description">Descrição</string>
