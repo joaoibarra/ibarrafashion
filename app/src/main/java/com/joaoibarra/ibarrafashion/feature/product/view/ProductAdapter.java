@@ -3,6 +3,7 @@ package com.joaoibarra.ibarrafashion.feature.product.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.CardView;
@@ -48,7 +49,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         Product product = list.get(position);
         if(product != null) {
             holder.tvProductName.setText(product.getName());
-            holder.tvDescription.setText(product.getRegularPrice());
+            setPrice(holder, product);
             if (!product.getImage().isEmpty()) {
                 Glide.
                         with(context)
@@ -65,15 +66,30 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         return list.size();
     }
 
+    public void setPrice(ProductAdapter.ViewHolder holder, Product product){
+        if(product.isOnSale()){
+            holder.tvNormalPrice.setText(product.getRegularPrice());
+            holder.tvNormalPrice.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.tvRealPrice.setText(product.getActualPrice());
+        }else{
+            holder.tvNormalPrice.setText(" ");
+            holder.tvRealPrice.setText(product.getActualPrice());
+        }
+
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.productImageView)
         ImageView productImageView;
 
-        @BindView(R.id.tvTitle)
+        @BindView(R.id.tvName)
         TextView tvProductName;
 
-        @BindView(R.id.tvDescription)
-        TextView tvDescription;
+        @BindView(R.id.tvNormalPrice)
+        TextView tvNormalPrice;
+
+        @BindView(R.id.tvRealPrice)
+        TextView tvRealPrice;
 
         @BindView(R.id.cardView)
         CardView cardView;

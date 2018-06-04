@@ -29,7 +29,7 @@
             android:scaleType="fitXY" />
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:transitionName="gameName"
@@ -37,20 +37,32 @@
             android:layout_marginStart="8dp"
             android:gravity="center_horizontal|center"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Descrição"
+            android:text=""
             android:textColor="#161616"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvDescription"
+            android:id="@+id/tvNormalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_horizontal|top"
+            android:text=""
+            android:textColor="#161616"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvRealPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:gravity="center_horizontal|top"
-            android:text="R$ --"
+            android:text=""
+            android:textStyle="bold"
             android:textColor="#161616"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 </android.support.v7.widget.CardView>

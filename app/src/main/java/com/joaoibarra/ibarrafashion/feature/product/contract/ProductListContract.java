@@ -12,11 +12,11 @@ public interface ProductListContract {
     }
 
     public interface Presenter{
-        void getProducts();
+        void getProducts(int filter);
     }
 
     public interface Interactor{
-        void getProducts();
+        void getProducts(int filter);
 
     }
     public interface OnGetProductsListener{

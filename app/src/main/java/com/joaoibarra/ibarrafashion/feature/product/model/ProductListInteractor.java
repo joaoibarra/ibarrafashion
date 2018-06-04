@@ -6,6 +6,7 @@ import com.joaoibarra.ibarrafashion.data.model.ResponseData;
 import com.joaoibarra.ibarrafashion.feature.product.contract.ProductListContract;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +20,7 @@ public class ProductListInteractor implements ProductListContract.Interactor{
     }
 
     @Override
-    public void getProducts(){
+    public void getProducts(int filter){
         retrofit2.Call<ResponseData> call = FashionApi.getApi().getProducts();
         call.enqueue(new Callback<ResponseData>() {
             @Override
@@ -32,5 +33,9 @@ public class ProductListInteractor implements ProductListContract.Interactor{
                 onGetProductsListener.onFailure(t.getMessage());
             }
         });
+    }
+
+    public List<Product> filterProducts(List<Product> products, int filter){
+        return products.stream().filter(product -> product.isOnSale()).collect(Collectors.toList());
     }
 }

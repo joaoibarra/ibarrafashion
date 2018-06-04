@@ -34,21 +34,21 @@ public class MainActivity extends AppCompatActivity {
                     presenter = new ProductListPresenter(selectedFragment);
                     selectedFragment.attachPresenter(presenter);
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, selectedFragment).commit();
-                    presenter.getProducts();
+                    presenter.getProducts(0);
                     return true;
                 case R.id.navigation_sale:
                     selectedFragment = ProductFragmentListActivity.newInstance();
                     presenter = new ProductListPresenter(selectedFragment);
                     selectedFragment.attachPresenter(presenter);
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, selectedFragment).commit();
-                    presenter.getProducts();
+                    presenter.getProducts(1);
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_fav:
                     selectedFragment = ProductFragmentListActivity.newInstance();
                     presenter = new ProductListPresenter(selectedFragment);
                     selectedFragment.attachPresenter(presenter);
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, selectedFragment).commit();
-                    presenter.getProducts();
+                    presenter.getProducts(2);
                     return true;
             }
             return false;

@@ -17,8 +17,8 @@ public class ProductListPresenter implements ProductListContract.Presenter,
     }
 
     @Override
-    public void getProducts() {
-        interactor.getProducts();
+    public void getProducts(int filter) {
+        interactor.getProducts(filter);
     }
 
     @Override
