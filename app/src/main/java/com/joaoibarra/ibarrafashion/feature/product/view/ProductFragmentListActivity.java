@@ -17,7 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ProductFragmentListActivity extends Fragment implements ProductListContract.View{
+public class ProductFragmentListActivity extends Fragment{
 
     @BindView(R.id.productRecyclerView)
     RecyclerView productRecyclerView;
@@ -39,7 +39,6 @@ public class ProductFragmentListActivity extends Fragment implements ProductList
         return this;
     }
 
-    @Override
     public void attachPresenter(
             ProductListContract.Presenter presenter) {
         this.presenter = presenter;
@@ -56,17 +55,20 @@ public class ProductFragmentListActivity extends Fragment implements ProductList
         return view;
     }
 
-    @Override
-    public void refresh(String message, List list) {
-        productAdapter = new ProductAdapter(getContext(), list);
-        productRecyclerView.setAdapter(productAdapter);
-        swipeRefreshLayout.setRefreshing(false);
-    }
-
     protected SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
-            presenter.getProducts(0);
+            presenter.refresh(filter);
         }
     };
+
+    public ProductAdapter getProductAdapter() {
+        return productAdapter;
+    }
+
+    public void setProductAdapter(ProductAdapter productAdapter) {
+        this.productAdapter = productAdapter;
+        productRecyclerView.setAdapter(productAdapter);
+        swipeRefreshLayout.setRefreshing(false);
+    }
 }

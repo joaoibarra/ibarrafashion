@@ -5,64 +5,81 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    android:layout_marginTop="4dp"
     android:layout_marginEnd="4dp"
     android:layout_marginStart="4dp"
-    app:cardPreventCornerOverlap="false"
-    android:orientation="vertical">
+    android:layout_marginTop="4dp"
+    android:orientation="vertical"
+    app:cardPreventCornerOverlap="false">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layoutGroup"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/productImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:transitionName="gameImage"
+            android:transitionName="productImage"
             android:adjustViewBounds="true"
             android:cropToPadding="false"
             android:fitsSystemWindows="false"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/layoutGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvName"
+        <LinearLayout
+            android:id="@+id/layoutGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:transitionName="gameName"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:gravity="center_horizontal|center"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text=""
-            android:textColor="#161616"
-            android:textSize="14sp" />
+            android:gravity="bottom|end"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/tvNormalPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:gravity="center_horizontal|top"
-            android:text=""
-            android:textColor="#161616"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center_horizontal|center"
+                android:minHeight="32dp"
+                android:text=""
+                android:textColor="#161616"
+                android:textSize="14sp"
+                android:transitionName="productTitle" />
 
-        <TextView
-            android:id="@+id/tvRealPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:gravity="center_horizontal|top"
-            android:text=""
-            android:textStyle="bold"
-            android:textColor="#161616"
-            android:textSize="16sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvNormalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center_horizontal|top"
+                android:text=""
+                android:textColor="#161616"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvRealPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center_horizontal|top"
+                android:text=""
+                android:textColor="#161616"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.v7.widget.CardView>

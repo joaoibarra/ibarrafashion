@@ -5,6 +5,7 @@ import com.joaoibarra.ibarrafashion.data.model.Product;
 import com.joaoibarra.ibarrafashion.data.model.ResponseData;
 import com.joaoibarra.ibarrafashion.feature.product.contract.ProductListContract;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +26,7 @@ public class ProductListInteractor implements ProductListContract.Interactor{
         call.enqueue(new Callback<ResponseData>() {
             @Override
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
-                onGetProductsListener.onSuccess(response.message(), response.body().getProducts());
+                onGetProductsListener.onSuccess(response.message(), filterProducts(response.body().getProducts(), filter));
             }
 
             @Override
@@ -36,6 +37,25 @@ public class ProductListInteractor implements ProductListContract.Interactor{
     }
 
     public List<Product> filterProducts(List<Product> products, int filter){
-        return products.stream().filter(product -> product.isOnSale()).collect(Collectors.toList());
+        switch (filter){
+            case 0:
+                return products;
+            case 1:
+                return filterProductsOnSale(products);
+            default:
+                return products;
+        }
     }
+
+    public List<Product> filterProductsOnSale(List<Product> products){
+        List<Product> productsOnSale = new ArrayList<>();
+        for(Product product: products){
+            if(product.isOnSale()){
+                productsOnSale.add(product);
+            }
+        }
+        return productsOnSale;
+    }
+
+
 }

@@ -18,6 +18,7 @@ public class ProductListPresenter implements ProductListContract.Presenter,
 
     @Override
     public void getProducts(int filter) {
+        view.showProgress();
         interactor.getProducts(filter);
     }
 
@@ -28,6 +29,11 @@ public class ProductListPresenter implements ProductListContract.Presenter,
 
     @Override
     public void onFailure(String message) {
+        view.hideProgress();
+    }
 
+    @Override
+    public void refresh(int filter) {
+        interactor.getProducts(filter);
     }
 }

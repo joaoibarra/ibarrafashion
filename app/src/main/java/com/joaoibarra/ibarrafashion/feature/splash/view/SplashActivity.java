@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.joaoibarra.ibarrafashion.MainActivity;
+import com.joaoibarra.ibarrafashion.feature.product.view.ProductListActivity;
 import com.joaoibarra.ibarrafashion.R;
-import com.joaoibarra.ibarrafashion.feature.product.view.ProductFragmentListActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashActivity.this, ProductListActivity.class);
                 startActivity(intent);
                 finish();
             }
