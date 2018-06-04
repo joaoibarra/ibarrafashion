@@ -1,4 +1,16 @@
 package com.joaoibarra.ibarrafashion.feature.product.model;
 
-public class ProductInteractor {
+
+import android.widget.TextView;
+
+import com.joaoibarra.ibarrafashion.feature.product.contract.ProductContract;
+
+public class ProductInteractor implements ProductContract.Interactor{
+    private void createColorGroup(String codeColor, TextView textView){
+
+    }
+
+    private void createSizeGroup(){
+
+    }
 }

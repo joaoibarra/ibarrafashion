@@ -6,5 +6,9 @@
     <string name="product_detail">Detalhe do Produto</string>
     <string name="description">Descrição</string>
     <string name="buy">Comprar</string>
+    <string name="color">Cores</string>
+    <string name="sizes">Tamanhos</string>
     <string name="season">OUTONO - INVERNO</string>
+
+    <string name="color_url">https://cdn.amaro.com/uploads/icons/%1$s.gif</string>
 </resources>

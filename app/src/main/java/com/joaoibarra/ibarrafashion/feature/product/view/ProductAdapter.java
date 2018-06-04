@@ -54,8 +54,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 Glide.
                         with(context)
                         .load(product.getImage())
-                        .apply(new RequestOptions()
-                                .diskCacheStrategy(DiskCacheStrategy.ALL))
                         .into(holder.productImageView);
             }
         }
@@ -72,7 +70,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             holder.tvNormalPrice.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             holder.tvRealPrice.setText(product.getActualPrice());
         }else{
-            holder.tvNormalPrice.setText(" ");
+            holder.tvNormalPrice.setText("");
             holder.tvRealPrice.setText(product.getActualPrice());
         }
 

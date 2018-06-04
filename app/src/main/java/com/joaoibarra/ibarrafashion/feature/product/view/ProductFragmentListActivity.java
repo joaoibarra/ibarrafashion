@@ -28,8 +28,15 @@ public class ProductFragmentListActivity extends Fragment implements ProductList
     protected ProductListContract.Presenter presenter;
     ProductAdapter productAdapter;
 
+    private int filter;
+
     public static ProductFragmentListActivity newInstance(){
         return new ProductFragmentListActivity();
+    }
+
+    public ProductFragmentListActivity setFilter(int filter) {
+        this.filter = filter;
+        return this;
     }
 
     @Override
@@ -46,8 +53,6 @@ public class ProductFragmentListActivity extends Fragment implements ProductList
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
         productRecyclerView.setLayoutManager(mLayoutManager);
 
-        //presenter.getProducts();
-
         return view;
     }
 
@@ -61,7 +66,7 @@ public class ProductFragmentListActivity extends Fragment implements ProductList
     protected SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
-            presenter.getProducts();
+            presenter.getProducts(0);
         }
     };
 }
